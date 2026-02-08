@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 3 - Coding for the Web</title>
+
+    <style>
+        body {
+            max-width: 70em;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h1> Week 3: Control Flow</h1>
+
+    <p>
+        Open your browser's Developer Tools and view the console.
+    </p>
+
+    <p>
+        If everything is set up correctly, you should see a message in the console
+    </p>
+
+    <script>
+
+        var username = "alex";
+        console.log("My name is " + username);
+
+        //var age = 37;
+
+        var age = prompt("What is your age?")
+
+        if (typeof parseInt(age) != Number) {
+            console.log("Enter a valid Number.")
+        }
+
+        console.log("My age is " + age);
+        console.log(typeof age);
+
+        var years = prompt("Enter a number of years...");
+
+        if (typeof parseInt(years) != Number) {
+            console.log("Enter a valid Number.")
+        }
+
+        var newAge = parseInt(age) + parseInt(years);
+        console.log("In " + years.toString() + " years, I will be " + newAge.toString() + ".")
+        console.log(typeof newAge);
+
+        var drinkingAge = 21;
+        console.log(typeof drinkingAge);
+
+        console.log(newAge > drinkingAge);
+
+        var canDrink = newAge >= drinkingAge;
+        console.log(canDrink);
+        console.log(typeof canDrink);
+
+        if (canDrink) {
+            console.log("In " + years + " years, you can legally drink!")
+        } else {
+            console.log("In " + years + " years, you cannot legally drink.")
+        }
+
+        
+
+    </script>
+</body>
+</html>
