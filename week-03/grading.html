@@ -13,60 +13,55 @@
     </style>
 </head>
 <body>
-    
-    <h1> Week 3: Control Flow</h1>
-
-    <p>
-        Open your browser's Developer Tools and view the console.
-    </p>
-
-    <p>
-        If everything is set up correctly, you should see a message in the console
-    </p>
 
     <script>
+        // new project!
+        // ask the user for their "grade" and tell them what letter grade they got
 
-        var username = "alex";
-        console.log("My name is " + username);
+        var numGrade = parseInt(prompt("What grade did you get?"));
+        var letterGrade = "A";
 
-        //var age = 37;
-
-        var age = prompt("What is your age?")
-
-        if (typeof parseInt(age) != Number) {
-            console.log("Enter a valid Number.")
+        if (numGrade >= 80 && grade < 90) {
+            letterGrade = "B";
         }
 
-        console.log("My age is " + age);
-        console.log(typeof age);
-
-        var years = prompt("Enter a number of years...");
-
-        if (typeof parseInt(years) != Number) {
-            console.log("Enter a valid Number.")
+        if (numGrade >= 70 && numGrade < 80) {
+            letterGrade = "C";
         }
 
-        var newAge = parseInt(age) + parseInt(years);
-        console.log("In " + years.toString() + " years, I will be " + newAge.toString() + ".")
-        console.log(typeof newAge);
-
-        var drinkingAge = 21;
-        console.log(typeof drinkingAge);
-
-        console.log(newAge > drinkingAge);
-
-        var canDrink = newAge >= drinkingAge;
-        console.log(canDrink);
-        console.log(typeof canDrink);
-
-        if (canDrink) {
-            console.log("In " + years + " years, you can legally drink!")
-        } else {
-            console.log("In " + years + " years, you cannot legally drink.")
+        if (numGrade >= 60 && numGrade < 70) {
+            letterGrade = "D";
         }
+
+        if (numGrade < 60) {
+            letterGrade = "F";
+        }
+
+        console.log("Your letter grade is " + letterGrade);
+
+        //const list = [
+            //[nuG: 93, "A"]
+            //[nuG: 90, "A-"]
+            //[nuG: 87, "B+"]
+            //[nuG: 83, "B"]
+            //[nuG: 80, "B-"]
+            //[nuG: 77, "C+"]
+            //[nuG: 70, "C-"]
+            //[nuG: 67, "D+"]
+            //[nuG: 63, "D"]
+            //[nuG: 60, "D-"]
+            //[nuG: 0, "F"]
+        //]
+
+        //for (const Value of list) {
+            //if (Value < numGrade) {
+                //foundNumber = number;
+                //break; // Stop the loop once a match is found
+                //console.log("")
+            //}
+        //}
 
         
-
     </script>
 </body>
 </html>

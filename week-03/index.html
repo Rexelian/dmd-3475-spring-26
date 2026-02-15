@@ -25,25 +25,36 @@
     </p>
 
     <script>
+        //this page may include contents from both index.html and corrected.html in your repository
 
+        
         var username = "alex";
         console.log("My name is " + username);
 
         //var age = 37;
 
         var age = prompt("What is your age?")
+        console.log(parseInt(age));
 
-        if (typeof parseInt(age) != Number) {
-            console.log("Enter a valid Number.")
+        //if (typeof parseInt(age) != Number) {
+            //alert("Enter a valid Number.")
+        //}
+
+        if (isNaN(parseInt(age))) {
+            alert("that's not a number!");
         }
 
         console.log("My age is " + age);
-        console.log(typeof age);
+        //console.log(typeof age);
 
         var years = prompt("Enter a number of years...");
 
-        if (typeof parseInt(years) != Number) {
-            console.log("Enter a valid Number.")
+        //if (typeof parseInt(years) != Number) {
+            //alert("Enter a valid Number.")
+        //}
+
+        if (isNan(parseInt(years))) {
+            alert("that's not a number!")
         }
 
         var newAge = parseInt(age) + parseInt(years);
@@ -51,13 +62,13 @@
         console.log(typeof newAge);
 
         var drinkingAge = 21;
-        console.log(typeof drinkingAge);
+        //console.log(typeof drinkingAge);
 
-        console.log(newAge > drinkingAge);
+        //console.log(newAge > drinkingAge);
 
         var canDrink = newAge >= drinkingAge;
-        console.log(canDrink);
-        console.log(typeof canDrink);
+        //console.log(canDrink);
+        //console.log(typeof canDrink);
 
         if (canDrink) {
             console.log("In " + years + " years, you can legally drink!")

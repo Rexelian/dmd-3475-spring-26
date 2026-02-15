@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Week 04</h1>
+    <h2>Excercise 2 - Loops</h2>
+
+    <script>
+        var age = prompt("Enter your age");
+            age = parseInt(age);
+
+        console.log("Your current age is: " + age);
+
+        var howManyYears = prompt("How many years into the future?");
+            howManyYears = parseInt(howManyYears); 
+
+        //console log how old you'll be in 1 years
+        var sum = age + 1;
+        //console.log("In one year, you'll be " + sum);
+
+        for(let i = 1; i <= howManyYears; i++) {
+            var numYears = i;
+            var newAge = age + numYears;
+
+            //console.log("In " + numYears + " year(s), you'll be " + newAge) // in [x] year, you'll be [newage]
+
+            var message = "In ";
+                message += numYears;
+                message += " years, you'll be ";
+                message += newAge;
+
+            console.log(message);
+
+        }
+
+        var number = 0;
+
+        while(number < 5) {
+            alert("number is less than 5");
+
+            number++;
+        }
+
+    </script>
+</body>
+</html>
