@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Stuff</title>
+
+    <style>
+        .redBG {
+            background-color: red;
+            color: brown !important;
+        }
+
+        .happy {
+            background-color: lightyellow;
+        }
+
+        .happy h1 {
+            text-transform: lowercase;
+            color:palevioletred;
+        }
+
+        .happy h2 {
+            text-transform: lowercase;
+            color: pink;
+        }
+
+        .happy button {
+            border-radius: 10px;
+            text-transform: lowercase;
+            background-color: palevioletred;
+            color: blue;
+        }
+
+        .sad {
+            background-color: blue;
+        }
+
+        .sad h1 {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .sad h2 {
+            font-size: 8px;
+            color: #333;
+        }
+
+        .sad button {
+            background-color: transparent;
+            border: 2px solid #333;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="pageH1">DOM Stuff</h1>
+    <!--document object model-->
+
+    <h2>Make the page red</h2>
+    <button id="makeRed">Click Me</button>   
+    
+    <h2>Change the h1 text</h2>
+    <input type="text" id="newH1" placeholder="enter a new h1">
+    <button id="changeH1">Change the h1</button>
+
+    <h2>How are you today?</h2>
+    <label for="userMood">
+        Enter your mood.
+    </label>
+
+    <input type="text" id="userMood" placeholder="happy, sad, angry">
+    
+    <button id="processMood">ProcessMood</button>
+
+    <!--<div id="container"></div>-->
+
+    <script>
+        var button = document.querySelector('#makeRed');
+        console.log(typeof button);
+
+        button.addEventListener("click", function() {
+            var body = document.querySelector("body");
+                body.classList.toggle("redBG");
+            button.innerHTML = "change it back";
+        });
+
+        var newH1Input = document.querySelector('#newH1');
+        var newH1Button = document.querySelector('#changeH1');
+        var pageH1 = document.querySelector("#pageH1");
+
+
+        //var container = document.querySelector(".container");
+
+        newH1Input.addEventListener("click", function() {
+
+            /*const newDiv = document.createElement('div');   
+                container.appendChild(newDiv);*/
+
+            var inputValue = newH1Input.value;
+
+            pageH1.innerHTML = inputValue;
+
+        })
+
+        
+        var processMoodButton = document.querySelector("#processMood");
+        var moodInput = document.querySelector("#userMood");
+        var body = document.querySelector("body");
+
+        processMoodButton.addEventListener("click", function() {
+            var inputValue = userMood.value;
+
+            if(inputValue == "happy") {
+                body.classList.add("happy");
+                body.classList.remove("angry");
+                body.classList.remove("sad");
+            } else if(inputValue == "sad") {
+                body.classList.add("sad");
+                body.classList.remove("angry");
+                body.classList.remove("happy");
+            }else if (inputValue == "angry") {
+                body.classList.add("angry");
+                body.classList.remove("happy");
+                body.classList.remove("sad");
+            }else {
+                alert ("you must enter one of the following: happy, sad, angry");
+            }
+        })
+
+
+
+    </script>
+</body>
+</html>

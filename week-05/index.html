@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        h1 {
+            color: red;
+        }
+
+        #div1 {
+            color: blueviolet;
+        }
+
+        #div2 {
+            color: blue;
+        }
+
+        .display-none {
+            display: none !important;
+        }
+
+        .red-text {
+            color: red;
+            text-decoration: underline;
+        }
+
+
+    </style>
+</head>
+<body>
+    <h1>welcome to Week 05</h1>
+    <h2>This is my h2</h2>
+    <div id="div1">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur nesciunt, quo obcaecati minus provident labore animi laudantium magni velit. Quisquam?</p>
+    </div>
+    <div id="div2">
+        <h3>This is Div2</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis aspernatur nam voluptates velit exercitationem nisi repellendus aperiam repudiandae nesciunt dolor?</p>
+    </div>
+    
+    <script>
+        
+        //var numberGrade = prompt("What's your grade?");
+
+        //const nuG = [93, 90, 87, 83, 80, 77, 73, 70, 67, 63, 60, 0];
+        //const lG = ["A", "A-", "B+", "B", "B-", "C+", "C", "C-", "D+", "D", "D-", "F"];
+
+        //for (i = 0; i <= 12; i++) {
+        //    if (numberGrade >= nuG[i]) {
+        //        console.log(lG[i]);
+        //        break
+        //    }
+        //}
+
+        var header = document.querySelector("h1");
+            console.log(typeof header);
+            header.innerHTML = "Hello! This is my new content!"
+
+            //header.classList.add('display-none');
+        
+        var text = document.querySelector("#div2 p");
+            text.innerHTML = "Something else entirely!";
+
+        var myH3 = document.querySelector("#div2 h3");
+            myH3.classList.add('red-text');
+
+
+
+    </script>
+</body>
+</html>

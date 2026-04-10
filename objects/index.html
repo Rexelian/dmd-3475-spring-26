@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Learning Directories</h1>
+
+    <input type="text" id="personName" placeholder="enter a name">
+    <input type="text" id="personRole" placeholder="enter a role">
+    <button id="addToDir">Add to Directory</button>
+    <input type="number" id="index" placeholder="enter a number">
+    <button id="edit">Edit</button>
+    <p id="directory"></p>
+
+
+    <script>
+        var appendBtn = document.querySelector("#addToDir");
+        var editBtn = document.querySelector('#edit');
+        var indNum = document.querySelector('#index');
+        var nameInput = document.querySelector("#personName");
+        var roleInput = document.querySelector("#personRole");
+
+        var directory = [
+            {
+                name: "joel",
+                role: "faculty"
+            },
+            {
+                name: "sarah",
+                role: "student"
+            },
+            {
+                name: "alyssa",
+                role: "student"
+            }
+        ]
+
+        function renderDirectory() {
+            document.getElementById('directory').innerHTML = '';
+
+            directory.forEach(function (person) {
+                var p = document.createElement('p');
+                p.textContent = person.name + ' - ' + person.role;
+                document.getElementById('directory').appendChild(p);
+            });
+        }
+
+        window.onload = (renderDirectory());
+        
+        //Next, 1) create the ability to add a new person (name and role) to the directory
+
+        function pushToDir(person) {
+            directory.push(person);
+        }
+
+        appendBtn.addEventListener("click", function() {
+            var nameInputText = nameInput.value;
+            var roleInputText = roleInput.value;
+            
+            if (nameInputText.trim() === "" && roleInputText.trim() === "") {
+                alert("Please enter a name and role");
+
+            } else {
+                var newPerson = { name: nameInputText.trim(), role: roleInputText.trim()};
+                pushToDir(newPerson);
+                console.log(directory);
+                renderDirectory();
+            }
+           
+        })
+
+        // 2) create the ability to edit the name and role of anyone already in the directory
+
+        editBtn.addEventListener("click", function() {
+            var nameInputText = nameInput.value;
+            var roleInputText = roleInput.value;
+
+            if (nameInputText.trim() === "" && roleInputText.trim() === "") {
+                alert("Please enter a name and role");
+            } else {
+                var newPerson = { name: nameInputText.trim(), role: roleInputText.trim()};
+                directory[indNum] = newPerson;
+                console.log(directory);
+                renderDirectory();
+            }
+        })
+
+    </script>
+</body>
+</html>

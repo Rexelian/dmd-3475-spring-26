@@ -14,7 +14,6 @@ var greeting = "Today is " + today + ".";
 
 console.log(greeting);
 
-
 var nextWeek = week + 1;
 console.log("Next week will be week " + weekNext);
 

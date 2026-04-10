@@ -1,0 +1,14 @@
+#taskList {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#taskWriter {
+    opacity: 0;
+}
+
+#taskWriter.visible {
+    opacity: 1;
+}

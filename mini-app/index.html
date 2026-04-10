@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <title>Alex's Checklist</title>
+</head>
+<body>
+    <header>
+        <h1>Alex's Checklist</h1>
+    </header>
+    <main>
+        <div id="sideBar">
+            <button id="createTask">New Item</button>
+            <div id="taskWriter">
+                <input type="text" id="newTask" placeholder="Enter your item name">
+                <button id="addTask">Add</button>
+            </div>
+            <div>
+                <p>Active tasks: <span id="taskCount">0</span></p>
+                <p>Archived tasks: <span id="archiveCount">0</span></p>
+            </div>
+        </div>
+        <div id="taskBoard">
+            <h2>Task List</h2>
+            <ul id="taskList">
+
+            </ul>
+            
+        </div>
+        <div>
+            <button id="submit">Archive Completed</button>
+            <button id="clearAll">Clear Task History</button>
+        </div>
+    </main>
+    <footer></footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
