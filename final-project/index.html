@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Alex's Music Visualizer</h1>
+
+    <div id="layout">
+        <div id="container">
+            <input type="file" id="audioFile" accept="audio/*">
+            <canvas id="canvas"></canvas>
+            <audio id="audio" controls></audio>
+        </div>
+
+        <div id="hist">
+            <h2>History</h2>
+            <div id="songHistory"></div>
+            <button id="removeSelected">Clear Selected</button>
+        </div>
+    </div>
+
+    <script src="java/script.js"></script>
+</body>
+</html>
