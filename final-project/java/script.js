@@ -93,10 +93,6 @@ window.onload = function () {
     var file = document.querySelector('#audioFile');
     audio = document.querySelector('#audio');
 
-    var context = new AudioContext();
-    var src = context.createMediaElementSource(audio);
-    var analyser = context.createAnalyser();
-
     //songHistory: renders a list of previous songs
     songHistory = (JSON.parse(localStorage.getItem("songHistory")) || []).map(song => ({
         name: song.name,
@@ -105,28 +101,14 @@ window.onload = function () {
     }));
     renderSongHistory();
 
-    var canvas = document.getElementById('canvas');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    var ctx = canvas.getContext('2d');
-
-    src.connect(analyser);
-    analyser.connect(context.destination);
-
-    analyser.fftSize = 256;
-
-    var bufferLength = analyser.frequencyBinCount;
-    console.log(bufferLength);
-
-    var dataArray = new Uint8Array(bufferLength);
-
-    var WIDTH = canvas.width;
-    var HEIGHT = canvas.height;
-
-    var barWidth = (WIDTH / bufferLength) * 2.5;
+    
 
     file.onchange = async function() {
         await getPalette();
+
+        var context = new AudioContext();
+        var src = context.createMediaElementSource(audio);
+        var analyser = context.createAnalyser();
 
         var files = this.files;
         let fileURL = URL.createObjectURL(files[0]);
@@ -142,7 +124,25 @@ window.onload = function () {
         audio.play();
         /*addSongToHistory(files[0].name, fileURL);*/
         
+        var canvas = document.getElementById('canvas');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        var ctx = canvas.getContext('2d');
 
+        src.connect(analyser);
+        analyser.connect(context.destination);
+
+        analyser.fftSize = 256;
+
+        var bufferLength = analyser.frequencyBinCount;
+        console.log(bufferLength);
+
+        var dataArray = new Uint8Array(bufferLength);
+
+        var WIDTH = canvas.width;
+        var HEIGHT = canvas.height;
+
+        var barWidth = (WIDTH / bufferLength) * 2.5;
         
         var barHeight;
         var x = 0;
@@ -182,7 +182,6 @@ window.onload = function () {
 
         renderFrame(ctx);
     }
-    
 }
 
 getPalette()
