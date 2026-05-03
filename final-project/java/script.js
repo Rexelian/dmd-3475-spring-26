@@ -91,7 +91,7 @@ async function getPalette() {
 
 window.onload = function () {
     var file = document.querySelector('#audioFile');
-    audio = document.querySelector('#audio');
+    var audio = document.querySelector('#audio');
 
     //songHistory: renders a list of previous songs
     songHistory = (JSON.parse(localStorage.getItem("songHistory")) || []).map(song => ({
@@ -106,29 +106,27 @@ window.onload = function () {
     file.onchange = async function() {
         await getPalette();
 
+        var files = this.files;
+        audio.src = URL.createObjectURL(files[0]);
+        audio.load();
+        audio.play();
+
+        /*songHistory.push({
+            name: files[0].name,
+            url: fileURL,
+            marked: false
+        });*/
+        addSongToHistory(files[0].name, audio.src);
+
         var context = new AudioContext();
         var src = context.createMediaElementSource(audio);
         var analyser = context.createAnalyser();
 
-        var files = this.files;
-        let fileURL = URL.createObjectURL(files[0]);
-
-        songHistory.push({
-            name: files[0].name,
-            url: fileURL,
-            marked: false
-        });
-
-        audio.src = fileURL;
-        audio.load();
-        audio.play();
-        /*addSongToHistory(files[0].name, fileURL);*/
-        
         var canvas = document.getElementById('canvas');
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
         var ctx = canvas.getContext('2d');
-
+        
         src.connect(analyser);
         analyser.connect(context.destination);
 
