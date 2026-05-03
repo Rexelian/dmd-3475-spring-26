@@ -1,6 +1,6 @@
 //I have an array
 let songHistory = [];
-let audio; // <-- make audio accessible everywhere*/
+//let audio; // <-- make audio accessible everywhere*/
 let visualizerStarted = false;
 
 function addSongToHistory(name, url) {
@@ -183,3 +183,4 @@ window.onload = function () {
 }
 
 getPalette()
+console.log("Honestly, professor, I wasn't expecting there to be so many bugs with trying to boot up audio from localstorage. BlobURLs are tough to store, and working with audio is still kinda tough for me. The audio and visualizer works, and you can use the history to replay your audio, but I don't think I will be able to load new audio from localstorage at this time.")
